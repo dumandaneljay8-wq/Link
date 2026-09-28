@@ -33,23 +33,6 @@
   
 </head>
   
-  <script>
-setInterval(function() {
-  let heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (15 + Math.random() * 25) + "px";
-
-  document.getElementById("hearts").appendChild(heart);
-
-  setTimeout(function() {
-    heart.remove();
-  }, 5000);
-}, 500);
-  </script>
-
 <body style="text-align:center; padding-top:100px;">
 
   <div id="hearts"></div>
@@ -104,3 +87,22 @@ function checkAnswer() {
   }
 }
                             </script>
+  <script>
+setInterval(function() {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 5000);
+}, 500);
+  </script>
+  
+  </body>
+</html>
