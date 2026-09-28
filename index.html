@@ -31,11 +31,41 @@
 }
   </style>
   
+  .sparkle {
+  position: absolute;
+  bottom: -20px;
+  font-size: 15px;
+  animation: sparkleUp 4s linear forwards;
+}
+
+@keyframes sparkleUp {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+  
 </head>
   
 <body style="text-align:center; padding-top:100px;">
 
   <div id="hearts"></div>
+  
+  <audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playMusic()">🎵 Play Music</button>
+
+<script>
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+</script>
   
   <h2>May sasabihin ako...</h2>
   
@@ -53,7 +83,7 @@
   Open 1 💗
 </button>
 
-  <h1 id="msg1" style="display:none;">
+  <div id="msg1" class="message"> style="display:none;">
     I love you ❤️ Sorry pudd
   </h1>
   
@@ -63,7 +93,7 @@
     
   </div>
   
-  <h1 id="msg2" style="display:none;">
+  <div id="msg2" class="message"> style="display:none;">
   Goodluck sa atong futureee atimana imong kaugalingon I LOVEE YOUU!!!
   </h1>
 
@@ -91,7 +121,8 @@ function checkAnswer() {
 setInterval(function() {
   let heart = document.createElement("div");
   heart.className = "heart";
-  heart.innerHTML = "❤️";
+  let hearts = ["❤️", "💗", "💖", "💕", "💘"];
+heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
 
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = (15 + Math.random() * 25) + "px";
@@ -106,3 +137,35 @@ setInterval(function() {
   
   </body>
 </html>
+
+<script>
+setInterval(function() {
+  let sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.innerHTML = "✨";
+
+  sparkle.style.left = Math.random() * 100 + "vw";
+  sparkle.style.fontSize = (10 + Math.random() * 15) + "px";
+
+  document.getElementById("hearts").appendChild(sparkle);
+
+  setTimeout(function() {
+    sparkle.remove();
+  }, 4000);
+}, 800);
+</script>
+
+</body>
+</html>
+
+    button {
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+button:active {
+  transform: scale(0.95);
+}
