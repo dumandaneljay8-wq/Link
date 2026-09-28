@@ -49,6 +49,18 @@
   }
 }
   
+  button {
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+  
 </head>
   
 <body style="text-align:center; padding-top:100px;">
@@ -151,19 +163,6 @@ setInterval(function() {
   }, 4000);
 }, 800);
 </script>
-
-    button {
-  transition: transform 0.2s ease;
-}
-
-button:hover {
-  transform: scale(1.08);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-    </script>
 
 </body>
   </html>
