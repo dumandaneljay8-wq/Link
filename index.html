@@ -2,14 +2,57 @@
 <html>
 <head>
   <title>For You ❤️</title>
-</head>
+  
+  <style>
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
 
-<body style="
-  text-align:center;
-  padding-top:100px;
-  min-height:100vh;
-  margin:0;
-  background-image:linear-gradient(rgba(0,0,0,0.60),rgba(0,0,0,0.60)),url('IMG_20251217_085644_176.jpg');
+.heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 25px;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+  </style>
+  
+</head>
+  
+  <script>
+setInterval(function() {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 5000);
+}, 500);
+  </script>
+
+<body style="text-align:center; padding-top:100px;">
+
+  <div id="hearts"></div>
   
   <h2>May sasabihin ako...</h2>
   
